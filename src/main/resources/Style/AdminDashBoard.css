@@ -1,0 +1,61 @@
+.root {
+    -fx-font-family: "Arial";
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2E3B55;
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+    -fx-pref-width: 180;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+    -fx-border-color: #2E3B55;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.nav-button:hover {
+    -fx-background-color: #B0E0E6; /* Slightly darker light blue for hover */
+}
+
+.logout-button {
+    -fx-background-color: #FF4D4D;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 180;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+    -fx-border-color: #2E3B55;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.logout-button:hover {
+    -fx-background-color: #E63939;
+}
+
+.card {
+    -fx-background-color: #ADD8E6; /* Light blue for cards */
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);
+    -fx-pref-width: 150;
+    -fx-pref-height: 80;
+    -fx-border-color: #2E3B55;
+    -fx-border-width: 1;
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2E3B55;
+}
+
+.card-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2E3B55;
+}

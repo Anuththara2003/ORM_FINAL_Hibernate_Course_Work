@@ -1,0 +1,86 @@
+/* Main Background */
+.main-background {
+    -fx-background-color: linear-gradient(to bottom, #4682B4, #ADD8E6);
+}
+
+/* Header Section */
+.header-section {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-border-color: transparent transparent rgba(255, 255, 255, 0.2) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-text {
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0, 0, 1);
+}
+
+/* Login Card */
+.login-card {
+    -fx-fill: white;
+    -fx-stroke: #e9ecef;
+    -fx-stroke-type: inside;
+    -fx-arc-height: 30;
+    -fx-arc-width: 30;
+}
+
+/* Login Title */
+.login-title {
+    -fx-text-fill: #2E3B55;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+}
+
+/* Input Labels */
+.input-label {
+    -fx-text-fill: #2E3B55;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Input Fields */
+.input-field {
+    -fx-background-color: #f1f3f5;
+    -fx-background-radius: 5;
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+}
+
+.input-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: #4682B4;
+    -fx-border-width: 2;
+}
+
+/* Show Password Checkbox */
+.show-password {
+    -fx-text-fill: #495057;
+    -fx-font-size: 12px;
+}
+
+/* Login Button */
+.login-button {
+    -fx-background-color: #2E3B55;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: #4682B4;
+}
+
+.login-button:pressed {
+    -fx-background-color: #1C2331;
+}
+
+/* Footer Text */
+.footer-text {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 1, 0, 0, 1);
+}
