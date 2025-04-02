@@ -12,7 +12,7 @@ import org.hibernate.Transaction;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class HelloApplication extends Application {
-//
+
 //        private final BCryptPasswordEncoder passwordEncoder;
 //
 //    public HelloApplication(BCryptPasswordEncoder passwordEncoder) {

@@ -93,8 +93,10 @@ public class AdminDashBoardController {
     }
 
     @FXML
-    void handleTherapistManagement(ActionEvent event) {
-
+    void handleTherapistManagement(ActionEvent event) throws IOException {
+        AncMain.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/TherapistManage.fxml"));
+        AncMain.getChildren().add(parent);
     }
 
     @FXML
@@ -110,4 +112,11 @@ public class AdminDashBoardController {
 
     }
 
+    public void btnprogram(ActionEvent actionEvent) throws IOException {
+        AncMain.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/TherapyProgram.fxml"));
+        AncMain.getChildren().add(parent);
+
+
+    }
 }

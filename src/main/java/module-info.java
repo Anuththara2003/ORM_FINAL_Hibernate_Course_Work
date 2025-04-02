@@ -8,6 +8,7 @@ module com.assignment.orm.service.orm_final_course_work_health_care {
     requires javafx.base;
     requires spring.security.crypto;
     requires spring.security.core;
+    requires org.slf4j;
 
 //    requires jbcrypt;
 

@@ -23,6 +23,7 @@
             <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2E3B55;" text="Admin Dashboard" />
             <Button fx:id="userMnagement" onAction="#handleUserManagement" styleClass="nav-button" text="User Management" />
             <Button fx:id="therapyManagement" onAction="#handleTherapistManagement" styleClass="nav-button" text="Therapist Management" />
+         <Button fx:id="program" layoutX="20.0" layoutY="130.0" onAction="#btnprogram" styleClass="nav-button" text="      Therapiy Program" />
             <Button fx:id="PatientManagement" onAction="#handlePatientManagement" styleClass="nav-button" text="Patient Management" />
             <Button fx:id="TherapySessionScheduling" onAction="#handleTherapySessionScheduling" styleClass="nav-button" text="Therapy Session Scheduling" />
             <Button fx:id="PaymentInvoiceManagement" onAction="#handlePaymentInvoiceManagement" styleClass="nav-button" text="Payment and Invoice Management" />
