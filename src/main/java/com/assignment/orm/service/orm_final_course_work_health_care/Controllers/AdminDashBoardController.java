@@ -78,8 +78,10 @@ public class AdminDashBoardController {
     }
 
     @FXML
-    void handlePatientManagement(ActionEvent event) {
-
+    void handlePatientManagement(ActionEvent event) throws IOException {
+        AncMain.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/PatientManage.fxml"));
+        AncMain.getChildren().add(parent);
     }
 
     @FXML

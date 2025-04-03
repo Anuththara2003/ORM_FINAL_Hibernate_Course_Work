@@ -1,9 +1,6 @@
 package com.assignment.orm.service.orm_final_course_work_health_care.BO;
 
-import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.Impl.EncyptAndBycriptImpl;
-import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.Impl.TherapistBoImpl;
-import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.Impl.TherapyProgramBoImpl;
-import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.Impl.UserBoImpl;
+import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.Impl.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class BoFactory {
@@ -24,7 +21,7 @@ public class BoFactory {
         USER,
         ENCRYPT,
 
-//        PATIENT,
+      PATIENT,
        THERAPIST,
        THERAPY_PROGRAM,
 //        THERAPY_SESSION_SCHEDULING,
@@ -42,6 +39,8 @@ public class BoFactory {
                 return (T) new TherapyProgramBoImpl();
             case THERAPIST:
                 return (T) new TherapistBoImpl();
+            case PATIENT:
+                return (T) new PatientBoImpl();
             default:
                 return null;
         }
