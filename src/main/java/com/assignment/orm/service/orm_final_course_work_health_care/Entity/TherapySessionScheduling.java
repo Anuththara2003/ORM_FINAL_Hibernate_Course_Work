@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
@@ -20,6 +21,8 @@ public class TherapySessionScheduling implements SuperEntity{
     private String id;
     private Time startTime;
     private Time endTime;
+    private Date date;
+    private String status;
 
 @ManyToOne
 @JoinColumn(name = "patient_id")

@@ -253,7 +253,7 @@ public class TherapyProgramController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        programIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        programIdColumn.setCellValueFactory(new PropertyValueFactory<>("T_id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         durationColumn.setCellValueFactory(new PropertyValueFactory<>("duration"));
         feeColumn.setCellValueFactory(new PropertyValueFactory<>("fee"));

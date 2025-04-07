@@ -102,8 +102,10 @@ public class AdminDashBoardController {
     }
 
     @FXML
-    void handleTherapySessionScheduling(ActionEvent event) {
-
+    void handleTherapySessionScheduling(ActionEvent event) throws IOException {
+        AncMain.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/TherapySessionScheduling.fxml"));
+        AncMain.getChildren().add(parent);
     }
 
     @FXML

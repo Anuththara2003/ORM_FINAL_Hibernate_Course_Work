@@ -1,8 +1,5 @@
 package com.assignment.orm.service.orm_final_course_work_health_care.DAO;
-import com.assignment.orm.service.orm_final_course_work_health_care.DAO.Custom.Impl.PatientDaoImpl;
-import com.assignment.orm.service.orm_final_course_work_health_care.DAO.Custom.Impl.TherapistDaoImpl;
-import com.assignment.orm.service.orm_final_course_work_health_care.DAO.Custom.Impl.TherapyProgramDaoImpl;
-import com.assignment.orm.service.orm_final_course_work_health_care.DAO.Custom.Impl.UserImpl;
+import com.assignment.orm.service.orm_final_course_work_health_care.DAO.Custom.Impl.*;
 
 
 public class DaoFactory {
@@ -25,7 +22,7 @@ public class DaoFactory {
         PATIENT,
       THERAPIST,
         THERAPY_PROGRAM,
-//        THERAPY_SESSION_SCHEDULING,
+       THERAPY_SESSION_SCHEDULING,
 //        PAYMENT,
 //        PROGRAM_DETAILS
     }
@@ -40,6 +37,8 @@ public class DaoFactory {
                 return (T) new TherapistDaoImpl();
             case PATIENT:
                 return (T) new PatientDaoImpl();
+            case THERAPY_SESSION_SCHEDULING:
+                return (T) new TherapySessionSchedulingDaoImpl();
             default:
                 return null;
         }

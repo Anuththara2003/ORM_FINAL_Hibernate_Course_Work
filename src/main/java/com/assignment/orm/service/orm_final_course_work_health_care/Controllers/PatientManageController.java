@@ -126,7 +126,7 @@ public class PatientManageController implements Initializable {
         String id = patientBo.getNextId();
         lblPatientId.setText(id);
 
-        //load();
+       load();
 
         txtName.clear();
         txtEmail.clear();
