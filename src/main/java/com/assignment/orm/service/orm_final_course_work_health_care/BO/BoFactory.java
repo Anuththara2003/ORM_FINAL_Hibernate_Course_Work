@@ -25,6 +25,8 @@ public class BoFactory {
        THERAPIST,
        THERAPY_PROGRAM,
         THERAPY_SESSION_SCHEDULING,
+        THERAPY_SESSION_SCHEDULING_BO,
+        TRACK_SCHEDULE,
 //        PAYMENT,
 //        PROGRAM_DETAILS
     }
@@ -43,6 +45,10 @@ public class BoFactory {
                 return (T) new PatientBoImpl();
             case THERAPY_SESSION_SCHEDULING:
                 return (T) new TherapySessionSchedulingBoImpl();
+            case THERAPY_SESSION_SCHEDULING_BO:
+                return (T) new TherapySessionSchedulingBoImpl();
+            case TRACK_SCHEDULE:
+                return (T) new TrackScheduleBoImpl();
             default:
                 return null;
         }

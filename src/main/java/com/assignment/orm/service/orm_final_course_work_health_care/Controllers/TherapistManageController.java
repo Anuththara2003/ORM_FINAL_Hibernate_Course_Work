@@ -12,11 +12,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -169,8 +174,15 @@ public class TherapistManageController implements Initializable {
     }
 
     @FXML
-    void btnTrack(ActionEvent event) {
+    void btnTrack(ActionEvent event) throws IOException {
+        Parent load =  FXMLLoader.load(getClass().getResource("/VIew/TrackShedule.fxml"));
+        Scene scene = new Scene(load);
 
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Schedule Form");
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML

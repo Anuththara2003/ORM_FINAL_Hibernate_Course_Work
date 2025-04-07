@@ -40,6 +40,9 @@ public class TherapySessionSchedulingBoImpl implements TherapySessionSchedulingB
             therapySessionSchedulingDto.setEndTime(therapySessionScheduling.getEndTime());
             therapySessionSchedulingDto.setDate(therapySessionScheduling.getDate());
             therapySessionSchedulingDto.setStatus(therapySessionScheduling.getStatus());
+            therapySessionSchedulingDto.setPatientId(therapySessionScheduling.getPatient().getP_id());
+            therapySessionSchedulingDto.setTherapistId(therapySessionScheduling.getTherapist().getId());
+            therapySessionSchedulingDto.setTherapyProgramId(therapySessionScheduling.getTherapyProgram().getT_id());
             therapySessionSchedulingDtos.add(therapySessionSchedulingDto);
         }
         return therapySessionSchedulingDtos;
