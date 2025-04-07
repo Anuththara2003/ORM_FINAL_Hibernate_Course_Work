@@ -16,11 +16,14 @@ public class TherapyProgramDaoImpl implements TherapyProgramDao {
     FactoryConfiguration factoryConfiguration = FactoryConfiguration.getInstance();
 
     @Override
-    public TherapyProgram findByName(String name) {
+    public TherapyProgram findByName(String therapistName) {
         Session session = factoryConfiguration.getSession();
-        TherapyProgram therapyProgram = session.createQuery("from TherapyProgram where name = :name", TherapyProgram.class)
-                .setParameter("name", name)
-                .getSingleResult();
+        Query<TherapyProgram> query = session.createQuery("FROM TherapyProgram tp WHERE tp.name = :therapyProgramName", TherapyProgram.class);
+        query.setParameter("therapyProgramName", therapistName);
+
+        TherapyProgram therapyProgram = query.uniqueResult();
+
+
         return therapyProgram;
 
     }

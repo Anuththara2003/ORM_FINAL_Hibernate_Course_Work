@@ -62,7 +62,6 @@
         <Button fx:id="updateButton" onAction="#handleUpdate" styleClass="update-button" text="Update" />
         <Button fx:id="deleteButton" onAction="#handleDelete" styleClass="delete-button" text="Delete" />
       <Button fx:id="resest" layoutX="160.0" layoutY="30.0" onAction="#btnReset" styleClass="save-button" text="Reset" />
-      <Button fx:id="linkTherapist" layoutX="510.0" layoutY="30.0" onAction="#LinkTherapist" styleClass="save-button" text="Link Therapist" />
     </HBox>
 
 </VBox>

@@ -20,7 +20,7 @@ public class TherapyProgramDaoImpl implements TherapyProgramDao {
         Session session = factoryConfiguration.getSession();
         TherapyProgram therapyProgram = session.createQuery("from TherapyProgram where name = :name", TherapyProgram.class)
                 .setParameter("name", name)
-                .getSingleResult();
+                .uniqueResult();
         return therapyProgram;
 
     }
@@ -35,7 +35,7 @@ public class TherapyProgramDaoImpl implements TherapyProgramDao {
     @Override
     public String getNextId() throws SQLException {
         Session session = factoryConfiguration.getSession();
-        String lastId = session.createQuery("select id from TherapyProgram order by id desc", String.class)
+        String lastId = session.createQuery("select T_id from TherapyProgram order by T_id desc", String.class)
                 .setMaxResults(1)
                 .getSingleResult();
         return lastId;

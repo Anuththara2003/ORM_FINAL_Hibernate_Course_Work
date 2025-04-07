@@ -24,7 +24,7 @@ public class DaoFactory {
         THERAPY_PROGRAM,
        THERAPY_SESSION_SCHEDULING,
 //        PAYMENT,
-//        PROGRAM_DETAILS
+       PROGRAM_DETAILS
     }
 
     public <T extends SuperDao> T getDao(DaoType daoType) {
@@ -39,6 +39,8 @@ public class DaoFactory {
                 return (T) new PatientDaoImpl();
             case THERAPY_SESSION_SCHEDULING:
                 return (T) new TherapySessionSchedulingDaoImpl();
+            case PROGRAM_DETAILS:
+                return (T) new ProgramDetailsDaoImpl();
             default:
                 return null;
         }
