@@ -125,8 +125,15 @@ public class PatientManageController implements Initializable {
     }
 
     @FXML
-    void btnFilterPatientOnAction(ActionEvent event) {
-   // meaka athule fiterpatient method eka call krnn one
+    void btnFilterPatientOnAction(ActionEvent event) throws IOException {
+        Parent load =  FXMLLoader.load(getClass().getResource("/VIew/FilterPatient.fxml"));
+        Scene scene = new Scene(load);
+
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Filter Patient Form");
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML

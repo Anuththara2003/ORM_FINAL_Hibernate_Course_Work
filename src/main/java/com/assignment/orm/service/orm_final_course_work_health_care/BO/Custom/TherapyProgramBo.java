@@ -1,6 +1,7 @@
 package com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom;
 
 import com.assignment.orm.service.orm_final_course_work_health_care.BO.SuperBo;
+import com.assignment.orm.service.orm_final_course_work_health_care.DTO.PatientDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.TherapyProgramDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.Patient;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.TherapyProgram;
@@ -23,4 +24,6 @@ public interface TherapyProgramBo extends SuperBo {
 
     TherapyProgramDto findById(String id) throws SQLException;
 
+    ArrayList<PatientDto> findPatientByProgramId(String proId);
 }
+

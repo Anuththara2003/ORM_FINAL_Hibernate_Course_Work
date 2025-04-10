@@ -3,11 +3,15 @@ package com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.I
 import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.TherapyProgramBo;
 import com.assignment.orm.service.orm_final_course_work_health_care.DAO.Custom.TherapyProgramDao;
 import com.assignment.orm.service.orm_final_course_work_health_care.DAO.DaoFactory;
+import com.assignment.orm.service.orm_final_course_work_health_care.DTO.PatientDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.TherapyProgramDto;
+import com.assignment.orm.service.orm_final_course_work_health_care.Entity.Patient;
+import com.assignment.orm.service.orm_final_course_work_health_care.Entity.ProgramDetails;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.TherapyProgram;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TherapyProgramBoImpl implements TherapyProgramBo {
 
@@ -90,6 +94,7 @@ public class TherapyProgramBoImpl implements TherapyProgramBo {
         return therapyProgramDto;
     }
 
+
     @Override
     public TherapyProgramDto findById(String therapyProgramId) {
         TherapyProgram therapyProgram = therapyProgramDao.findById(therapyProgramId);
@@ -104,4 +109,36 @@ public class TherapyProgramBoImpl implements TherapyProgramBo {
 
         return therapyProgramDto;
     }
+
+    @Override
+    public ArrayList<PatientDto> findPatientByProgramId(String proId) {
+        TherapyProgram therapyProgram = therapyProgramDao.findById(proId);
+
+        List<ProgramDetails> programDetails = therapyProgram.getProgramDetails();
+
+        ArrayList<Patient> patients = new ArrayList<>();
+
+        for (ProgramDetails programDetails1 : programDetails){
+            patients.add(programDetails1.getPatient());
+        }
+
+        ArrayList<PatientDto> patientDtos = new ArrayList<>();
+
+        for (Patient patient : patients){
+            patientDtos.add(new PatientDto(
+                    patient.getP_id(),
+                    patient.getName(),
+                    patient.getAddress(),
+                    patient.getContact(),
+                    patient.getEmail(),
+                    patient.getHistory(),
+                    patient.getDate()
+
+            ));
+        }
+
+        return patientDtos;
+    }
+
+
 }

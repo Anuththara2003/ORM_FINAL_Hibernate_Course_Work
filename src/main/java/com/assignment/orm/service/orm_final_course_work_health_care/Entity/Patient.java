@@ -29,7 +29,7 @@ public class Patient implements SuperEntity {
     @OneToMany(mappedBy = "patient",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<TherapySessionScheduling> therapySessionScheduling;
 
-    @OneToMany(mappedBy = "patient",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "patient",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<ProgramDetails> programDetails;
 }
 
