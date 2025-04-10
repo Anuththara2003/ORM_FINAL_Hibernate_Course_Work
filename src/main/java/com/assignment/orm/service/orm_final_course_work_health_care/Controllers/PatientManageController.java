@@ -125,15 +125,8 @@ public class PatientManageController implements Initializable {
     }
 
     @FXML
-    void btnFilterPatientOnAction(ActionEvent event) throws IOException {
-        Parent load =  FXMLLoader.load(getClass().getResource("/VIew/FilterPatient.fxml"));
-        Scene scene = new Scene(load);
-
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Filter Patient Form");
-        stage.setResizable(false);
-        stage.show();
+    void btnFilterPatientOnAction(ActionEvent event) {
+   // meaka athule fiterpatient method eka call krnn one
     }
 
     @FXML
@@ -314,9 +307,17 @@ public class PatientManageController implements Initializable {
     }
 
     @FXML
-    void btnViewPatientProgramsOnAction(ActionEvent event) {
-// meke patient therapy programs method eka call krnn one
+    void btnViewPatientProgramsOnAction(ActionEvent event) throws IOException {
+        Parent load =  FXMLLoader.load(getClass().getResource("/VIew/ViewPatientProgram.fxml"));
+        Scene scene = new Scene(load);
+
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("View Patient Programs");
+        stage.setResizable(false);
+        stage.show();
     }
+
 
     @FXML
     void tblPatientsOnMouseClicked(MouseEvent event) {

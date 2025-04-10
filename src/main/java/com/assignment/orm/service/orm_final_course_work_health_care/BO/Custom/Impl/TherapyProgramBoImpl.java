@@ -21,7 +21,7 @@ public class TherapyProgramBoImpl implements TherapyProgramBo {
     public String getNextId() throws SQLException {
         String id = therapyProgramDao.getNextId();
         if (id != null) {
-            String substring = id.substring(1);
+            String substring = id.substring(2);
             int i = Integer.parseInt(substring);
             int newId = i + 1;
             return String.format("TP%03d", newId);
@@ -133,10 +133,8 @@ public class TherapyProgramBoImpl implements TherapyProgramBo {
                     patient.getEmail(),
                     patient.getHistory(),
                     patient.getDate()
-
             ));
         }
-
         return patientDtos;
     }
 

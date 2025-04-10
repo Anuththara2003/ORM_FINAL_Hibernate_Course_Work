@@ -29,7 +29,8 @@ public class BoFactory {
         TRACK_SCHEDULE,
 //        PAYMENT,
     PROGRAM_DETAILS,
-        FILTER_PATIENT
+        FILTER_PATIENT,
+        VIEW_PATIENT_PROGRAMS
     }
 
     public <T extends SuperBo> T getBo(BoType boType) {
@@ -54,6 +55,8 @@ public class BoFactory {
                 return (T) new ProgramDetailsBoImpl();
             case FILTER_PATIENT:
                 return (T) new FilterPatientBoImpl();
+            case VIEW_PATIENT_PROGRAMS:
+                return (T) new ViewPatientProgramBoImpl();
             default:
                 return null;
         }

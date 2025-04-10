@@ -6,10 +6,13 @@ import com.assignment.orm.service.orm_final_course_work_health_care.DAO.DaoFacto
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.PatientDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.TherapyProgramDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.Patient;
+import com.assignment.orm.service.orm_final_course_work_health_care.Entity.ProgramDetails;
+import com.assignment.orm.service.orm_final_course_work_health_care.Entity.TherapyProgram;
 import org.springframework.security.core.parameters.P;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PatientBoImpl implements PatientBo {
 
@@ -110,7 +113,31 @@ public class PatientBoImpl implements PatientBo {
     }
 
     @Override
-    public ArrayList<TherapyProgramDto> getProgramsByPatientId(String p_id) {
-        return null;
+    public ArrayList<TherapyProgramDto> getProgramsByPatientId(String p_id) throws SQLException {
+        Patient patient = patientDao.findById(p_id);
+
+        List<ProgramDetails> therapyPrograms = patient.getProgramDetails();
+
+
+        ArrayList<TherapyProgram> programs = new ArrayList<>();
+
+        for (ProgramDetails programDetails : therapyPrograms) {
+            programs.add(programDetails.getTherapyProgram());
+        }
+
+        ArrayList<TherapyProgramDto> therapyProgramDtos = new ArrayList<>();
+
+        for (TherapyProgram therapyProgram : programs) {
+            therapyProgramDtos.add(new TherapyProgramDto(
+                    therapyProgram.getT_id(),
+                    therapyProgram.getName(),
+                    therapyProgram.getDuration(),
+                    therapyProgram.getDescription(),
+                    therapyProgram.getFee()
+            ));
+        }
+
+        return therapyProgramDtos;
     }
-}
+    }
+
