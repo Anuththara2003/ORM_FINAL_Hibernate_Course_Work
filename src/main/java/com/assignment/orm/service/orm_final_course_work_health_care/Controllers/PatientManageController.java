@@ -239,8 +239,15 @@ public class PatientManageController implements Initializable {
         }
     }
     @FXML
-    void btnTherapyProgramsOnAction(ActionEvent event) {
-// meaka athule therapy programs method eka call krnn one
+    void btnTherapyProgramsOnAction(ActionEvent event) throws IOException {
+        Parent load =  FXMLLoader.load(getClass().getResource("/VIew/ViewAllTherapyPrograms.fxml"));
+        Scene scene = new Scene(load);
+
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("View Patient Programs");
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML

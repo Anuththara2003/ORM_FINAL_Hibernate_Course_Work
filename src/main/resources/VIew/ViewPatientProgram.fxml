@@ -70,7 +70,7 @@
               </font>
           </Button>
 
-                <Label fx:id="lblPatientName" layoutX="580.0" layoutY="101.0" prefHeight="38.0" prefWidth="134.0" styleClass="data-label">
+                <Label fx:id="lblPatientName" layoutX="597.0" layoutY="100.0" prefHeight="38.0" prefWidth="134.0" styleClass="data-label">
               <font>
                   <Font size="14.0" />
               </font>
