@@ -98,6 +98,8 @@ public class PatientManageController implements Initializable {
     private TextField txtName;
 
     PatientBo patientBo = BoFactory.getInstance().getBo(BoFactory.BoType.PATIENT);
+    private ReceptionistDashBoardController receptionistDashBoardController = new ReceptionistDashBoardController();
+
 
     @FXML
     void btnAssignProgramOnAction(ActionEvent event) throws IOException {
@@ -107,6 +109,7 @@ public class PatientManageController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Assign Program Form");
+
         stage.setResizable(false);
         stage.show();
     }
@@ -360,4 +363,22 @@ public class PatientManageController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    public void setPatientManageController(ReceptionistDashBoardController receptionistDashBoardController) {
+      this.receptionistDashBoardController = receptionistDashBoardController;
+
+        if (receptionistDashBoardController != null) {
+            if (receptionistDashBoardController.user != null) {
+                if (receptionistDashBoardController.user.getRole().equals("Receptionist")) {
+                    btnDelete.setDisable(true);
+                }
+            }else {
+                System.out.println("receptionistDashBoardController user is null");
+            }
+        }else {
+            System.out.println("receptionistDashBoardController is null");
+        }
+    }
+
 }
+
