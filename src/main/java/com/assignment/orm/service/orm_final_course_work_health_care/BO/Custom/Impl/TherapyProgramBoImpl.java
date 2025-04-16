@@ -4,10 +4,12 @@ import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.Th
 import com.assignment.orm.service.orm_final_course_work_health_care.DAO.Custom.TherapyProgramDao;
 import com.assignment.orm.service.orm_final_course_work_health_care.DAO.DaoFactory;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.PatientDto;
+import com.assignment.orm.service.orm_final_course_work_health_care.DTO.SessionStaticsDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.TherapyProgramDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.Patient;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.ProgramDetails;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.TherapyProgram;
+import com.assignment.orm.service.orm_final_course_work_health_care.Entity.TherapySessionScheduling;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -136,6 +138,53 @@ public class TherapyProgramBoImpl implements TherapyProgramBo {
             ));
         }
         return patientDtos;
+    }
+
+    @Override
+    public ArrayList<SessionStaticsDto> getAllDetails() throws SQLException {
+        ArrayList<TherapyProgram> therapyPrograms = therapyProgramDao.getAll();
+
+        ArrayList<SessionStaticsDto> sessionStaticsDtos = new ArrayList<>();
+
+        int completedCounts = 0;
+        int bookedCounts = 0;
+        int rescheduleCounts = 0;
+        int canceledCounts = 0;
+
+        for (TherapyProgram therapyProgram : therapyPrograms){
+            SessionStaticsDto sessionStatisticsDto = new SessionStaticsDto();
+            sessionStatisticsDto.setId(therapyProgram.getT_id());
+            sessionStatisticsDto.setName(therapyProgram.getName());
+
+            List<TherapySessionScheduling> therapySessionSchedulings = therapyProgram.getTherapySessionScheduling();
+
+            for (TherapySessionScheduling therapySessionScheduling : therapySessionSchedulings){
+                if (therapySessionScheduling.getStatus().equals("Completed")){
+                    completedCounts++;
+                } else if (therapySessionScheduling.getStatus().equals("Booked")){
+                    bookedCounts++;
+                } else if (therapySessionScheduling.getStatus().equals("Rescheduled")){
+                    rescheduleCounts++;
+                } else if (therapySessionScheduling.getStatus().equals("Cancelled")){
+                    canceledCounts++;
+                }
+            }
+
+            sessionStatisticsDto.setCompletedSessionCount(completedCounts);
+            sessionStatisticsDto.setBookedSessionCount(bookedCounts);
+            sessionStatisticsDto.setRescheduleSessionCount(rescheduleCounts);
+            sessionStatisticsDto.setCanceledSessionCount(canceledCounts);
+
+            completedCounts = 0;
+            bookedCounts = 0;
+            rescheduleCounts = 0;
+            canceledCounts = 0;
+
+
+            sessionStaticsDtos.add(sessionStatisticsDto);
+        }
+
+        return sessionStaticsDtos;
     }
 
 

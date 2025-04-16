@@ -226,4 +226,25 @@ public class TherapySessionSchedulingBoImpl implements TherapySessionSchedulingB
         return therapySessionSchedulingDao.update(therapySessionScheduling);
 
     }
+
+    @Override
+    public ArrayList<TherapySessionSchedulingDto> getAllCounts(String therapistId, String therapyProgramId) {
+        ArrayList<TherapySessionScheduling> therapySessionSchedulings = therapySessionSchedulingDao.getAllCounts(therapistId, therapyProgramId);
+
+        ArrayList<TherapySessionSchedulingDto> therapySessionSchedulingDtos = new ArrayList<>();
+
+        for (TherapySessionScheduling therapySessionScheduling : therapySessionSchedulings){
+            TherapySessionSchedulingDto therapySessionSchedulingDto = new TherapySessionSchedulingDto();
+            therapySessionSchedulingDto.setId(therapySessionScheduling.getId());
+            therapySessionSchedulingDto.setStartTime(therapySessionScheduling.getStartTime());
+            therapySessionSchedulingDto.setDate(therapySessionScheduling.getDate());
+            therapySessionSchedulingDto.setStatus(therapySessionScheduling.getStatus());
+            therapySessionSchedulingDto.setTherapyProgramId(therapySessionScheduling.getTherapyProgram().getT_id());
+            therapySessionSchedulingDto.setId(therapySessionScheduling.getTherapist().getId());
+            therapySessionSchedulingDto.setPatientId(therapySessionScheduling.getPatient().getP_id());
+
+            therapySessionSchedulingDtos.add(therapySessionSchedulingDto);
+        }
+
+        return therapySessionSchedulingDtos;    }
 }

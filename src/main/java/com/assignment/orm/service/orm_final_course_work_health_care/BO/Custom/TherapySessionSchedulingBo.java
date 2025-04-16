@@ -23,4 +23,7 @@ public interface TherapySessionSchedulingBo extends SuperBo {
      boolean save(TherapySessionSchedulingDto therapySessionSchedulingDto) throws Exception;
      boolean delete(String Id) throws SQLException ;
      boolean update(TherapySessionSchedulingDto therapySessionSchedulingDto) throws Exception;
+
+    ArrayList<TherapySessionSchedulingDto> getAllCounts(String therapistId, String therapyProgramId);
+
 }

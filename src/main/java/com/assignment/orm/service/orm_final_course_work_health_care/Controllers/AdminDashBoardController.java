@@ -90,8 +90,11 @@ public class AdminDashBoardController {
     }
 
     @FXML
-    void handleReportingAnalytics(ActionEvent event) {
+    void handleReportingAnalytics(ActionEvent event) throws IOException {
 
+        AncMain.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/ReportAndAnalize.fxml"));
+        AncMain.getChildren().add(parent);
     }
 
     @FXML

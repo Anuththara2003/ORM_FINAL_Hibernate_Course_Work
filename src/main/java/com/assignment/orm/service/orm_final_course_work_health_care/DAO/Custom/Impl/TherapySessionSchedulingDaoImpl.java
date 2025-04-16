@@ -44,6 +44,17 @@ public class TherapySessionSchedulingDaoImpl implements TherapySessionScheduling
     }
 
     @Override
+    public ArrayList<TherapySessionScheduling> getAllCounts(String therapistId, String therapyProgramId) {
+       Session session = FactoryConfiguration.getInstance().getSession();
+
+        Query<TherapySessionScheduling> query = session.createQuery("FROM TherapySessionScheduling ts WHERE ts.therapist.id = :therapistId AND ts.therapyProgram.id = :programId", TherapySessionScheduling.class);
+        query.setParameter("therapistId", therapistId);
+        query.setParameter("programId", therapyProgramId);
+        List<TherapySessionScheduling> sessions = query.list();
+        return new ArrayList<>(sessions);
+    }
+
+    @Override
     public String getNextId() throws SQLException {
         Session session = FactoryConfiguration.getInstance().getSession();
 

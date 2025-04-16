@@ -132,4 +132,13 @@ public class TherapistBoImpl implements TherapistBo {
                 therapist.getStatus()
         );
     }
+
+    @Override
+    public List<TherapyProgram> getProgramsByTherapistId(String id) throws Exception {
+        Therapist therapist = therapistDao.findById(id);
+
+        List<TherapyProgram> therapyPrograms = therapist.getTherapyPrograms();
+
+        return therapyPrograms;
+    }
 }
