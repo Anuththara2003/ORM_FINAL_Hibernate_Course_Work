@@ -1,86 +1,149 @@
-/* Main Background */
-.main-background {
-    -fx-background-color: linear-gradient(to bottom, #4682B4, #ADD8E6);
+/* Main Styles for Therapy Management System */
+
+/* Root styles and variables */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -primary-color: #4682B4;
+    -primary-dark: #385D8A;
+    -accent-color: #FF9800;
+    -light-bg: #f8f9fa;
+    -text-dark: #343a40;
+    -text-light: #ffffff;
+    -border-color: #e9ecef;
 }
 
-/* Header Section */
+/* Main background */
+.main-background {
+    -fx-background-color: linear-gradient(to bottom right, -primary-color, -primary-dark);
+}
+
+/* Header section */
 .header-section {
     -fx-background-color: rgba(255, 255, 255, 0.1);
-    -fx-border-color: transparent transparent rgba(255, 255, 255, 0.2) transparent;
-    -fx-border-width: 0 0 1 0;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(200, 200, 200, 0.3), 10, 0, 0, 5);
 }
 
 .header-text {
-    -fx-text-fill: white;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0, 0, 1);
+    -fx-text-fill: -text-light;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
 }
 
-/* Login Card */
+/* Login card */
 .login-card {
-    -fx-fill: white;
-    -fx-stroke: #e9ecef;
-    -fx-stroke-type: inside;
-    -fx-arc-height: 30;
-    -fx-arc-width: 30;
+    -fx-background-color: -light-bg; /* Ensure light background */
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: -border-color;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(200, 200, 200, 0.3), 10, 0, 0, 5);
+    -fx-fill: -light-bg; /* Explicitly set fill for Rectangle */
 }
 
-/* Login Title */
+/* Login title */
 .login-title {
-    -fx-text-fill: #2E3B55;
+    -fx-text-fill: -primary-color;
+    -fx-font-weight: bold;
     -fx-font-size: 36px;
-    -fx-font-weight: bold;
 }
 
-/* Input Labels */
+/* Input fields */
 .input-label {
-    -fx-text-fill: #2E3B55;
-    -fx-font-size: 14px;
+    -fx-text-fill: -text-dark;
     -fx-font-weight: bold;
+    -fx-font-size: 14px;
 }
 
-/* Input Fields */
 .input-field {
-    -fx-background-color: #f1f3f5;
+    -fx-background-color: white;
     -fx-background-radius: 5;
-    -fx-border-color: #ced4da;
     -fx-border-radius: 5;
-    -fx-padding: 8;
+    -fx-border-color: -border-color;
+    -fx-border-width: 1;
+    -fx-padding: 8px;
     -fx-font-size: 14px;
 }
 
 .input-field:focused {
-    -fx-background-color: white;
-    -fx-border-color: #4682B4;
-    -fx-border-width: 2;
+    -fx-border-color: -primary-color;
+    -fx-effect: dropshadow(gaussian, rgba(200, 200, 200, 0.3), 5, 0, 0, 0);
 }
 
-/* Show Password Checkbox */
-.show-password {
-    -fx-text-fill: #495057;
-    -fx-font-size: 12px;
-}
-
-/* Login Button */
+/* Login button */
 .login-button {
-    -fx-background-color: #2E3B55;
-    -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-background-color: -primary-color;
+    -fx-text-fill: -text-light;
     -fx-font-weight: bold;
     -fx-background-radius: 25;
     -fx-cursor: hand;
+    -fx-padding: 10px 20px;
 }
 
 .login-button:hover {
-    -fx-background-color: #4682B4;
+    -fx-background-color: -primary-dark;
+    -fx-effect: dropshadow(gaussian, rgba(200, 200, 200, 0.3), 10, 0, 0, 5);
 }
 
 .login-button:pressed {
-    -fx-background-color: #1C2331;
+    -fx-background-color: derive(-primary-dark, -10%);
+    -fx-effect: dropshadow(gaussian, rgba(200, 200, 200, 0.3), 10, 0, 0, 5);
 }
 
-/* Footer Text */
-.footer-text {
-    -fx-text-fill: white;
+/* Show password checkbox */
+.show-password {
+    -fx-text-fill: -text-dark;
     -fx-font-size: 12px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 1, 0, 0, 1);
+}
+
+.show-password .box {
+    -fx-background-color: white;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 3px;
+}
+
+.show-password:selected .box {
+    -fx-background-color: -primary-color;
+}
+
+/* Footer text */
+.footer-text {
+    -fx-text-fill: -text-light;
+    -fx-font-size: 12px;
+    -fx-opacity: 0.8;
+}
+
+/* Responsive adjustments */
+/* For screens with width less than 800px */
+@media (max-width: 800px) {
+    .login-card {
+        -fx-pref-width: 90%;
+    }
+
+    .input-field {
+        -fx-pref-width: 90%;
+    }
+
+    .login-button {
+        -fx-pref-width: 80%;
+    }
+
+    .header-text {
+        -fx-font-size: 20px;
+    }
+}
+
+/* For screens with width less than 600px */
+@media (max-width: 600px) {
+    .login-title {
+        -fx-font-size: 28px;
+    }
+
+    .header-text {
+        -fx-font-size: 18px;
+    }
+
+    .input-field {
+        -fx-font-size: 12px;
+    }
 }

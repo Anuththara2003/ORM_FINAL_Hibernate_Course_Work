@@ -52,7 +52,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/View/login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),650, 600);
+        Scene scene = new Scene(fxmlLoader.load(),750, 600);
         stage.setTitle("Login Page!");
         stage.setScene(scene);
         stage.show();

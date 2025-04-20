@@ -1,71 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #4682B4;" stylesheets="@../Style/User.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.orm.service.orm_final_course_work_health_care.Controllers.UserController">
+<StackPane stylesheets="@../Style/User.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.orm.service.orm_final_course_work_health_care.Controllers.UserController">
+    <VBox styleClass="main-container">
+        <!-- Header section -->
+        <HBox styleClass="header-section">
+            <Label styleClass="title-label" text="User Role Management" />
+        </HBox>
 
-    <!-- Title -->
-    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2E3B55; -fx-padding: 20;" text="User Role Management" />
+        <!-- Input fields section - Using GridPane for better responsiveness -->
+        <GridPane hgap="20" styleClass="input-grid" vgap="15">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="33.33" />
+                <ColumnConstraints percentWidth="33.33" />
+                <ColumnConstraints percentWidth="33.33" />
+            </columnConstraints>
 
-    <!-- Input Fields -->
-    <HBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
-        <VBox spacing="10" styleClass="input-container">
-            <Label styleClass="field-label" text="User ID:" />
-            <TextField fx:id="userIdField" promptText="User ID Value" styleClass="input-field" />
+            <!-- First row -->
+            <VBox spacing="8" styleClass="input-container" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label styleClass="field-label" text="User ID:" />
+                <TextField fx:id="userIdField" promptText="User ID Value" styleClass="input-field" />
+            </VBox>
+
+            <VBox spacing="8" styleClass="input-container" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label styleClass="field-label" text="Name:" />
+                <TextField fx:id="nameField" promptText="Enter name" styleClass="input-field" />
+            </VBox>
+
+            <VBox spacing="8" styleClass="input-container" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <Label styleClass="field-label" text="Password:" />
+                <TextField fx:id="passwordField" promptText="Enter password" styleClass="input-field" />
+            </VBox>
+
+            <!-- Second row -->
+            <VBox spacing="8" styleClass="input-container" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label styleClass="field-label" text="Email:" />
+                <TextField fx:id="emailField" promptText="Enter email" styleClass="input-field" />
+            </VBox>
+
+            <VBox spacing="8" styleClass="input-container" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label styleClass="field-label" text="Role:" />
+                <ComboBox fx:id="roleComboBox" styleClass="combo-box" />
+            </VBox>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <!-- Table -->
+        <VBox styleClass="table-container" VBox.vgrow="ALWAYS">
+            <TableView fx:id="userTable" onMouseClicked="#tblOnclicked" prefHeight="400.0" prefWidth="982.0" styleClass="user-table">
+                <columns>
+                    <TableColumn fx:id="userIdColumn" prefWidth="168.79999113082886" text="User ID" />
+                    <TableColumn fx:id="nameColumn" prefWidth="336.0000457763672" text="Name" />
+                    <TableColumn fx:id="emailColumn" prefWidth="314.3999328613281" text="Email" />
+                    <TableColumn fx:id="roleColumn" prefWidth="163.2000732421875" text="User Role" />
+                </columns>
+                <placeholder>
+                    <Label styleClass="table-placeholder" text="No content in table" />
+                </placeholder>
+            </TableView>
         </VBox>
-        <VBox spacing="10" styleClass="input-container">
-            <Label styleClass="field-label" text="Name:" />
-            <TextField fx:id="nameField" promptText="Enter name" styleClass="input-field" />
-        </VBox>
-        <VBox spacing="10" styleClass="input-container" />
-    </HBox>
 
-    <HBox alignment="CENTER" spacing="20" style="-fx-padding: 0 20 20 20;">
-        <VBox spacing="10" styleClass="input-container">
-            <Label styleClass="field-label" text="Password:" />
-            <TextField fx:id="passwordField" promptText="Enter password" styleClass="input-field" />
-        </VBox>
-        <VBox spacing="10.0" styleClass="input-container">
-            <Label styleClass="field-label" text="Email:" />
-            <TextField fx:id="emailField" promptText="Enter email" styleClass="input-field" />
-        </VBox>
-        <VBox spacing="10.0" styleClass="input-container">
-            <Label styleClass="field-label" text="Role:" />
-         <ComboBox fx:id="roleComboBox" prefWidth="150.0">
-            <padding>
-               <Insets bottom="10.0" />
-            </padding>
-         </ComboBox>
-        </VBox>
-    </HBox>
-
-    <!-- Table -->
-    <TableView fx:id="userTable" onMouseClicked="#tblOnclicked" prefHeight="200.0" prefWidth="700.0" style="-fx-background-color: #ADD8E6; -fx-border-color: #2E3B55; -fx-border-width: 1;">
-        <columns>
-            <TableColumn fx:id="userIdColumn" prefWidth="100" text="User ID" />
-            <TableColumn fx:id="nameColumn" prefWidth="150" text="Name" />
-            <TableColumn fx:id="emailColumn" prefWidth="245.5999755859375" text="Email" />
-            <TableColumn fx:id="roleColumn" prefWidth="199.19998168945312" text="User Role" />
-        </columns>
-        <placeholder>
-            <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="No content in table" />
-        </placeholder>
-    </TableView>
-
-    <!-- Buttons -->
-    <HBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
-        <Button fx:id="saveButton" onAction="#handleSave" styleClass="save-button" text="Save" />
-        <Button fx:id="updateButton" onAction="#handleUpdate" styleClass="update-button" text="Update" />
-        <Button fx:id="deleteButton" onAction="#handleDelete" styleClass="delete-button" text="Delete" />
-        <Button fx:id="resetButton" onAction="#handleReset" styleClass="reset-button" text="Reset" />
-    </HBox>
-
-</VBox>
+        <!-- Buttons -->
+        <HBox styleClass="button-container">
+            <Button fx:id="saveButton" onAction="#handleSave" styleClass="action-button, save-button" text="Save" />
+            <Button fx:id="updateButton" onAction="#handleUpdate" styleClass="action-button, update-button" text="Update" />
+            <Button fx:id="deleteButton" onAction="#handleDelete" styleClass="action-button, delete-button" text="Delete" />
+            <Button fx:id="resetButton" onAction="#handleReset" styleClass="action-button, reset-button" text="Reset" />
+        </HBox>
+    </VBox>
+</StackPane>

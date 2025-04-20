@@ -41,7 +41,7 @@
 }
 
 /* TextArea styling (for Description) */
-.input-field:text-area {
+.input-field{
     -fx-pref-height: 100px;
     -fx-pref-width: 660px;
 }

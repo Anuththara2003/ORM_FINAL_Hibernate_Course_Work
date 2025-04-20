@@ -211,25 +211,7 @@
                     </VBox>
                 </GridPane>
 
-                <!-- Recent Activities Section -->
-                <HBox alignment="CENTER_LEFT" layoutX="20" layoutY="650" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
-                    <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2E3B55;" text="Recent Activities" />
-                </HBox>
 
-                <VBox layoutX="20" layoutY="680" prefWidth="800" spacing="5" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
-                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="card">
-                        <Label style="-fx-text-fill: #2E3B55;" text="New patient registered: John Doe" />
-                        <Label style="-fx-text-fill: #757575; -fx-font-size: 12px;" text="Today, 14:30" HBox.hgrow="ALWAYS" />
-                    </HBox>
-                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="card">
-                        <Label style="-fx-text-fill: #2E3B55;" text="Session completed: Physical Therapy with Dr. Smith" />
-                        <Label style="-fx-text-fill: #757575; -fx-font-size: 12px;" text="Today, 11:15" HBox.hgrow="ALWAYS" />
-                    </HBox>
-                    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="card">
-                        <Label style="-fx-text-fill: #2E3B55;" text="Payment received: $120.00 from Sarah Johnson" />
-                        <Label style="-fx-text-fill: #757575; -fx-font-size: 12px;" text="Yesterday, 16:45" HBox.hgrow="ALWAYS" />
-                    </HBox>
-                </VBox>
             </AnchorPane>
         </ScrollPane>
     </center>
