@@ -1,5 +1,6 @@
 package com.assignment.orm.service.orm_final_course_work_health_care.BO;
 
+import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.ChangeCredentialManageBo;
 import com.assignment.orm.service.orm_final_course_work_health_care.BO.Custom.Impl.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -33,7 +34,8 @@ public class BoFactory {
         VIEW_PATIENT_PROGRAMS,
         VIEW_PATIENT_IN_ALL_PROGRAM,
         REPORT_AND_ANALYZE,
-        VIEW_PATIENT_HISTORY
+        VIEW_PATIENT_HISTORY,
+        CHANGE_CREDENTIALS
     }
 
     public <T extends SuperBo> T getBo(BoType boType) {
@@ -66,6 +68,8 @@ public class BoFactory {
                 return (T) new ReportAndAnalizeBoImpl();
             case VIEW_PATIENT_HISTORY:
                 return (T) new ViewPatientHistoryBoImpl();
+            case CHANGE_CREDENTIALS:
+                return (T) new ChangeCredentialManageBoImpl();
             default:
                 return null;
         }

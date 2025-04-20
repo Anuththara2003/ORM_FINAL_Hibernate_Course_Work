@@ -110,7 +110,7 @@ public class ViewPatientProgramController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        colProgramId.setCellValueFactory(new PropertyValueFactory<>("T_id"));
+        colProgramId.setCellValueFactory(new PropertyValueFactory<>("t_id"));
         colProgramName.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         try {

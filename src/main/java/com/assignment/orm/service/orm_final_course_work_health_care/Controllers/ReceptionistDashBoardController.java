@@ -69,8 +69,10 @@ public class ReceptionistDashBoardController {
     User user = new User();
 
     @FXML
-    void btnCredentialManageOnAction(ActionEvent event) {
-
+    void btnCredentialManageOnAction(ActionEvent event) throws IOException {
+        subAnchorPaneOne.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/ChangeCredential.fxml"));
+        subAnchorPaneOne.getChildren().add(parent);
     }
 
     @FXML
@@ -105,12 +107,18 @@ public class ReceptionistDashBoardController {
     }
 
     @FXML
-    void btnPaymentInvoiceManageOnAction(ActionEvent event) {
+    void btnPaymentInvoiceManageOnAction(ActionEvent event) throws IOException {
+        subAnchorPaneOne.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/"));
+        subAnchorPaneOne.getChildren().add(parent);
 
     }
 
     @FXML
-    void btnReportingAnalyticsOnAction(ActionEvent event) {
+    void btnReportingAnalyticsOnAction(ActionEvent event) throws IOException {
+        subAnchorPaneOne.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/ReportAndAnalize.fxml"));
+        subAnchorPaneOne.getChildren().add(parent);
 
     }
 

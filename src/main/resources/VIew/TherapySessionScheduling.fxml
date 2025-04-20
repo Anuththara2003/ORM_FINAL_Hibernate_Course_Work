@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.orm.service.orm_final_course_work_health_care.Controllers.TherapySessionSchedulingController">
+<AnchorPane prefHeight="650.0" prefWidth="887.0" stylesheets="@../Style/TherapySessionScheduling.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.orm.service.orm_final_course_work_health_care.Controllers.TherapySessionSchedulingController">
     <children>
         <!-- Header with background -->
         <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="70.0" prefWidth="887.0" styleClass="header-background">
@@ -72,22 +72,22 @@
                     </children>
                 </VBox>
 
-                <!-- Action Buttons with updated colors -->
+                <!-- Action Buttons with updated styles -->
                 <HBox layoutX="219.0" layoutY="514.0" prefHeight="35.0" prefWidth="400.0" spacing="30.0">
                     <children>
-                        <Button fx:id="btnBook" mnemonicParsing="false" onAction="#btnBookOnAction" prefHeight="35.0" prefWidth="100.0" styleClass="book-button" text="Book" textFill="WHITE">
+                        <Button fx:id="btnBook" mnemonicParsing="false" onAction="#btnBookOnAction" prefHeight="35.0" prefWidth="100.0" styleClass="button, book-button" text="Book" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Button>
 
-                        <Button fx:id="btnReschedule" mnemonicParsing="false" onAction="#btnRescheduleOnAction" prefHeight="35.0" prefWidth="100.0" styleClass="reschedule-button" text="Reschedule" textFill="WHITE">
+                        <Button fx:id="btnReschedule" mnemonicParsing="false" onAction="#btnRescheduleOnAction" prefHeight="35.0" prefWidth="140.0" styleClass="button, reschedule-button" text="Reschedule" textFill="WHITE">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Button>
-      
-                        <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="35.0" prefWidth="100.0" styleClass="reset-button" text="Reset" textFill="WHITE">
+
+                        <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="35.0" prefWidth="100.0" styleClass="button, reset-button" text="Reset" textFill="WHITE">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -95,8 +95,8 @@
                     </children>
                 </HBox>
 
-                <!-- Updated Table View with new styling -->
-                <TableView fx:id="tblSessions" layoutX="32.0" layoutY="289.0" onMouseClicked="#tblSessionsOnMouseClicked" prefHeight="200.0" prefWidth="774.0" styleClass="enhanced-table">
+                <!-- Updated Table View with enhanced styling -->
+                <TableView fx:id="tblSessions" layoutX="32.0" layoutY="289.0" onMouseClicked="#tblSessionsOnMouseClicked" prefHeight="200.0" prefWidth="774.0">
                     <columns>
                         <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
                         <TableColumn fx:id="colTherapistId" prefWidth="100.0" text="Therapist ID" />

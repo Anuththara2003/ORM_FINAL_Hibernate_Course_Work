@@ -126,4 +126,10 @@ public class AdminDashBoardController {
 
 
     }
+
+    public void handleDashboard(ActionEvent actionEvent) {
+    }
+
+    public void handleSettings(ActionEvent actionEvent) {
+    }
 }

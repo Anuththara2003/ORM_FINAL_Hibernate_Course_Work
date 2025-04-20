@@ -60,12 +60,24 @@ public class LoginController {
                 currentStage.close();
 
 
+                if(userDto.getRole().equals("Admin")) {
+
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VIew/AdminDashBoard.fxml"));
                 Parent root = fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Admin DashBoard");
                 stage.setScene(new Scene(root));
                 stage.show();
+
+                }else if(userDto.getRole().equals("Receptionist")) {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/VIew/ReceptionistDashBoard.fxml"));
+                    Parent root = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("Receptionist DashBoard");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                }
 
             }catch (IOException e) {
 //               new Alert(Alert.AlertType.ERROR, "error").showAndWait();
