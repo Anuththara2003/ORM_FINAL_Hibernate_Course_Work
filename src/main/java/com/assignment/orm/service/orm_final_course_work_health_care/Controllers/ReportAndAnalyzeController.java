@@ -12,14 +12,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -30,6 +35,10 @@ public class ReportAndAnalyzeController  implements Initializable {
     ReportAndAnalizeBo reportAndAnalizeBo = BoFactory.getInstance().getBo(BoFactory.BoType.REPORT_AND_ANALYZE);
     TherapyProgramBo therapyProgramBo = BoFactory.getInstance().getBo(BoFactory.BoType.THERAPY_PROGRAM);
 
+
+
+    @FXML
+    private Button btnhistory;
 
     @FXML
     private CategoryAxis X;
@@ -208,4 +217,16 @@ public class ReportAndAnalyzeController  implements Initializable {
 
     }
 
+    public void historyonAction(ActionEvent actionEvent) throws IOException {
+        Parent load =  FXMLLoader.load(getClass().getResource("/VIew/ViewPatientHistory.fxml"));
+        Scene scene = new Scene(load);
+
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Assign Program Form");
+
+        stage.setResizable(false);
+        stage.show();
+    }
 }
+

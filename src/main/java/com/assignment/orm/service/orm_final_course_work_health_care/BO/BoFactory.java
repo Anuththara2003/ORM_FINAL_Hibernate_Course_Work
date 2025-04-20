@@ -32,7 +32,8 @@ public class BoFactory {
         FILTER_PATIENT,
         VIEW_PATIENT_PROGRAMS,
         VIEW_PATIENT_IN_ALL_PROGRAM,
-        REPORT_AND_ANALYZE
+        REPORT_AND_ANALYZE,
+        VIEW_PATIENT_HISTORY
     }
 
     public <T extends SuperBo> T getBo(BoType boType) {
@@ -63,6 +64,8 @@ public class BoFactory {
                 return (T) new ViewAllTherapyProgramsImpl();
             case REPORT_AND_ANALYZE:
                 return (T) new ReportAndAnalizeBoImpl();
+            case VIEW_PATIENT_HISTORY:
+                return (T) new ViewPatientHistoryBoImpl();
             default:
                 return null;
         }
