@@ -62,12 +62,12 @@
 
         <!-- Table -->
         <VBox styleClass="table-container" VBox.vgrow="ALWAYS">
-            <TableView fx:id="userTable" onMouseClicked="#tblOnclicked" prefHeight="400.0" prefWidth="982.0" styleClass="user-table">
+            <TableView fx:id="userTable" onMouseClicked="#tblOnclicked" prefHeight="400.0" prefWidth="982.0">
                 <columns>
-                    <TableColumn fx:id="userIdColumn" prefWidth="168.79999113082886" text="User ID" />
-                    <TableColumn fx:id="nameColumn" prefWidth="336.0000457763672" text="Name" />
-                    <TableColumn fx:id="emailColumn" prefWidth="314.3999328613281" text="Email" />
-                    <TableColumn fx:id="roleColumn" prefWidth="163.2000732421875" text="User Role" />
+                    <TableColumn fx:id="userIdColumn" prefWidth="122.39998662471771" text="User ID" />
+                    <TableColumn fx:id="nameColumn" prefWidth="221.59998321533203" text="Name" />
+                    <TableColumn fx:id="emailColumn" prefWidth="256.0" text="Email" />
+                    <TableColumn fx:id="roleColumn" prefWidth="388.79998779296875" text="User Role" />
                 </columns>
                 <placeholder>
                     <Label styleClass="table-placeholder" text="No content in table" />

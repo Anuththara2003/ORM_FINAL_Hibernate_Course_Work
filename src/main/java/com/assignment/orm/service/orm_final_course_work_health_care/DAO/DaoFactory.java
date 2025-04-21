@@ -23,7 +23,7 @@ public class DaoFactory {
       THERAPIST,
         THERAPY_PROGRAM,
        THERAPY_SESSION_SCHEDULING,
-//        PAYMENT,
+       PAYMENT,
        PROGRAM_DETAILS,
         QUERY
     }
@@ -44,6 +44,8 @@ public class DaoFactory {
                 return (T) new ProgramDetailsDaoImpl();
             case QUERY:
                 return (T) new QueryDaoImpl();
+            case PAYMENT:
+                return (T) new PaymentInvoiceDaoImpl();
             default:
                 return null;
         }

@@ -109,7 +109,7 @@ public class ReceptionistDashBoardController {
     @FXML
     void btnPaymentInvoiceManageOnAction(ActionEvent event) throws IOException {
         subAnchorPaneOne.getChildren().clear();
-        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/Payment.fxml"));
         subAnchorPaneOne.getChildren().add(parent);
 
     }

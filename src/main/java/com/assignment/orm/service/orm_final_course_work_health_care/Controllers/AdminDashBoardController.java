@@ -94,8 +94,10 @@ public class AdminDashBoardController {
     }
 
     @FXML
-    void handlePaymentInvoiceManagement(ActionEvent event) {
-
+    void handlePaymentInvoiceManagement(ActionEvent event) throws IOException {
+        AncMain.getChildren().clear();
+        Parent parent = FXMLLoader.load(getClass().getResource("/VIew/Payment.fxml"));
+        AncMain.getChildren().add(parent);
     }
 
     @FXML

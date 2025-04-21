@@ -28,7 +28,7 @@ public class BoFactory {
         THERAPY_SESSION_SCHEDULING,
         THERAPY_SESSION_SCHEDULING_BO,
         TRACK_SCHEDULE,
-//        PAYMENT,
+      PAYMENT,
     PROGRAM_DETAILS,
         FILTER_PATIENT,
         VIEW_PATIENT_PROGRAMS,
@@ -70,6 +70,8 @@ public class BoFactory {
                 return (T) new ViewPatientHistoryBoImpl();
             case CHANGE_CREDENTIALS:
                 return (T) new ChangeCredentialManageBoImpl();
+            case PAYMENT:
+                return (T) new PaymentInvoiceBoImpl();
             default:
                 return null;
         }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="630.0" prefWidth="852.0" styleClass="content-area" stylesheets="@../Style/ReportAndAnalize.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.orm.service.orm_final_course_work_health_care.Controllers.ReportAndAnalyzeController">
+<AnchorPane prefHeight="630.0" prefWidth="852.0" styleClass="content-area" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.orm.service.orm_final_course_work_health_care.Controllers.ReportAndAnalyzeController">
     <children>
         <!-- Page Title -->
         <Label layoutX="40.0" layoutY="40.0" styleClass="page-title" text="Reports and Analytics">
@@ -76,7 +76,7 @@
                                 </Label>
                                 <ComboBox fx:id="cmbProgramName" prefHeight="35.0" prefWidth="250.0" styleClass="form-control" />
 
-                                <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="35.0" prefWidth="120.0" styleClass="search-button, hover-effect" text="SEARCH">
+                                <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="35.0" prefWidth="120.0" styleClass="search-button" text="SEARCH">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
@@ -88,18 +88,15 @@
                         </HBox>
 
                         <!-- Bar Chart for Therapist Performance -->
-                        <AnchorPane prefHeight="180.0" prefWidth="735.0" styleClass="chart-container">
-                            <children>
-                                <BarChart fx:id="barChartPerformance" barGap="0.0" categoryGap="70.0" layoutX="0.0" layoutY="0.0" prefHeight="180.0" prefWidth="735.0" styleClass="performance-chart">
-                                    <xAxis>
-                                        <CategoryAxis fx:id="X" label="Session Status" side="BOTTOM" />
-                                    </xAxis>
-                                    <yAxis>
-                                        <NumberAxis fx:id="Y" label="Number of Sessions" minorTickCount="2" minorTickLength="2.0" prefHeight="129.0" prefWidth="39.0" side="LEFT" tickLabelGap="4.0" tickLength="2.0" tickUnit="2.0" upperBound="12.5" />
-                                    </yAxis>
-                                </BarChart>
-                            </children>
-                        </AnchorPane>
+                        <AnchorPane prefHeight="180.0" prefWidth="735.0" styleClass="chart-container" />
+                          <BarChart fx:id="barChartPerformance" barGap="0.0" categoryGap="70.0" prefHeight="235.0" prefWidth="735.0" styleClass="performance-chart">
+                              <xAxis>
+                                  <CategoryAxis fx:id="X" label="Session Status" side="BOTTOM" />
+                              </xAxis>
+                              <yAxis>
+                                  <NumberAxis fx:id="Y" label="Number of Sessions" minorTickCount="2" minorTickLength="2.0" prefHeight="129.0" prefWidth="39.0" side="LEFT" tickLabelGap="4.0" tickLength="2.0" tickUnit="2.0" upperBound="12.5" />
+                              </yAxis>
+                          </BarChart>
                     </children>
                 </VBox>
 
@@ -113,7 +110,7 @@
                         </Label>
 
                         <!-- Table View for Session Statistics -->
-                        <TableView fx:id="tblSessionStats" prefHeight="108.0" prefWidth="735.0" styleClass="data-table">
+                        <TableView fx:id="tblSessionStats" prefHeight="108.0" prefWidth="735.0" style="-fx-background-color: white;" styleClass="data-table">
                             <columns>
                                 <TableColumn fx:id="colProgramId" prefWidth="85.0" text="Program ID" />
                                 <TableColumn fx:id="colProgramName" prefWidth="180.0" text="Program Name" />
@@ -125,7 +122,7 @@
                         </TableView>
                     </children>
                 </VBox>
-                <Button fx:id="btnhistory" layoutX="522.0" layoutY="498.0" mnemonicParsing="false" onAction="#historyonAction" prefHeight="35.0" prefWidth="218.0" styleClass="hover-effect" text="View Patient History" />
+            <Button fx:id="btnhistory" layoutX="522.0" layoutY="498.0" mnemonicParsing="false" onAction="#historyonAction" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: FF0B55;" text="View Patient History" />
             </children>
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
