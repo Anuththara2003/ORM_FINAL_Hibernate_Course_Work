@@ -1,12 +1,13 @@
 package com.assignment.orm.service.orm_final_course_work_health_care.Entity;
 
+import com.mysql.cj.MysqlConnection;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -20,6 +21,7 @@ public class Payment implements SuperEntity{
     private double amount;
     private Date paymentDate;
     private String method;
+private String status;
 
     @ManyToOne
     @JoinColumn(name = "Patient_Id")
@@ -32,4 +34,7 @@ public class Payment implements SuperEntity{
     @ManyToOne
     @JoinColumn(name = "Therapy_Session_Sheduling")
     private TherapySessionScheduling therapySessionScheduling;
+
+
+
 }

@@ -247,4 +247,20 @@ public class TherapySessionSchedulingBoImpl implements TherapySessionSchedulingB
         }
 
         return therapySessionSchedulingDtos;    }
+
+    @Override
+    public TherapySessionSchedulingDto findById(String therapySessionId) {
+        TherapySessionScheduling therapySessionScheduling = therapySessionSchedulingDao.findById(therapySessionId);
+
+        TherapySessionSchedulingDto therapySessionSchedulingDto = new TherapySessionSchedulingDto();
+        therapySessionSchedulingDto.setId(therapySessionScheduling.getId());
+        therapySessionSchedulingDto.setStartTime(therapySessionScheduling.getStartTime());
+        therapySessionSchedulingDto.setDate(therapySessionScheduling.getDate());
+        therapySessionSchedulingDto.setStatus(therapySessionScheduling.getStatus());
+        therapySessionSchedulingDto.setTherapyProgramId(therapySessionScheduling.getTherapyProgram().getT_id());
+        therapySessionSchedulingDto.setTherapistId(therapySessionScheduling.getTherapist().getId());
+        therapySessionSchedulingDto.setPatientId(therapySessionScheduling.getPatient().getP_id());
+
+        return therapySessionSchedulingDto;
+    }
 }

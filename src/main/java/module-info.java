@@ -10,6 +10,7 @@ module com.assignment.orm.service.orm_final_course_work_health_care {
     requires spring.security.core;
     requires org.slf4j;
     requires spring.security.config;
+    requires mysql.connector.j;
 
 //    requires jbcrypt;
 

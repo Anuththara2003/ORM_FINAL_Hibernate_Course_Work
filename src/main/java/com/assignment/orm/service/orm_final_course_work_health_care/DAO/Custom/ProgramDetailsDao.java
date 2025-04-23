@@ -5,4 +5,7 @@ import com.assignment.orm.service.orm_final_course_work_health_care.Entity.Progr
 
 public interface ProgramDetailsDao extends CrudDao<ProgramDetails,String> {
     boolean delete (ProgramDetails programDetails) ;
+
+    ProgramDetails findProgramDetails(String patientId, String programId);
+
 }

@@ -172,14 +172,14 @@ public class AssignProgramController implements Initializable {
         ObservableList<ProgramDetailsTm> therapistTherapyProgramTms = FXCollections.observableArrayList();
 
         for (ProgramDetailsDto therapistTherapyProgramDto : therapistTherapyProgramDtos) {
-            ProgramDetailsTm programDetailsTm = new ProgramDetailsTm();
-            programDetailsTm.setPatient(therapistTherapyProgramDto.getPatient());
-            programDetailsTm.setTherapyProgram(therapistTherapyProgramDto.getTherapyProgram());
-            programDetailsTm.setTherapyProgramName(therapistTherapyProgramDto.getTherapyProgramName());
-            programDetailsTm.setFee(String.valueOf(therapistTherapyProgramDto.getCurrentPaymentStatus()));
-            programDetailsTm.setRegisterDate(therapistTherapyProgramDto.getRegisterDate());
+            ProgramDetailsTm therapistTherapyProgramTm = new ProgramDetailsTm();
+            therapistTherapyProgramTm.setPatient(therapistTherapyProgramDto.getPatient());
+            therapistTherapyProgramTm.setTherapyProgram(therapistTherapyProgramDto.getTherapyProgram());
+            therapistTherapyProgramTm.setTherapyProgramName(therapistTherapyProgramDto.getTherapyProgramName());
+            therapistTherapyProgramTm.setFee(String.valueOf(therapistTherapyProgramDto.getCurrentPaymentStatus()));
+            therapistTherapyProgramTm.setRegisterDate(therapistTherapyProgramDto.getRegisterDate());
 
-            therapistTherapyProgramTms.add(programDetailsTm);
+            therapistTherapyProgramTms.add(therapistTherapyProgramTm);
         }
 
         tblAssignments.setItems(therapistTherapyProgramTms);
@@ -218,7 +218,7 @@ public class AssignProgramController implements Initializable {
             colPatientId.setCellValueFactory(new PropertyValueFactory<>("patient"));
             colProgramId.setCellValueFactory(new PropertyValueFactory<>("therapyProgram"));
             colProgramName.setCellValueFactory(new PropertyValueFactory<>("therapyProgramName"));
-          colProgramFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
+            colProgramFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
             colRegisterDate.setCellValueFactory(new PropertyValueFactory<>("registerDate"));
 
             try{

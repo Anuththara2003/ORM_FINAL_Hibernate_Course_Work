@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -14,4 +16,9 @@ public class ProgramDetailsDto {
     private String patient;
     private String therapyProgram;
     private String therapyProgramName;
+    private double currentPaymentStatus;
+private Date registerDate;
+private String fee;
+
+
 }

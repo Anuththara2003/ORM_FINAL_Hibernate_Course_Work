@@ -13,8 +13,11 @@ import com.assignment.orm.service.orm_final_course_work_health_care.Entity.Patie
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.ProgramDetails;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.ProgramDetailsIds;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.TherapyProgram;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -36,6 +39,8 @@ public class ProgramDetailsBoImpl implements ProgramDetailsBo {
             programDetailsDto.setPatient(programDetail.getPatient().getP_id());
             programDetailsDto.setTherapyProgram(programDetail.getTherapyProgram().getT_id());
             programDetailsDto.setTherapyProgramName(programDetail.getTherapyProgramName());
+            programDetailsDto.setCurrentPaymentStatus(programDetail.getCurrentPaymentStatus());
+            programDetailsDto.setRegisterDate(programDetail.getRegisterDate());
 
             programDetailsDtos.add(programDetailsDto);
         }
@@ -111,6 +116,76 @@ public class ProgramDetailsBoImpl implements ProgramDetailsBo {
 
 
         return programDetailsDao.delete(programDetails);
+
+    }
+
+    @Override
+    public ProgramDetailsDto findProgramDetails(String patientId, String programId) {
+        ProgramDetails programDetails = programDetailsDao.findProgramDetails(patientId, programId);
+
+        ProgramDetailsDto programDetailsDto = new ProgramDetailsDto();
+        programDetailsDto.setPatient(programDetails.getPatient().getP_id());
+        programDetailsDto.setTherapyProgram(programDetails.getTherapyProgram().getT_id());
+        programDetailsDto.setTherapyProgramName(programDetails.getTherapyProgramName());
+        programDetailsDto.setCurrentPaymentStatus(programDetails.getCurrentPaymentStatus());
+
+        return programDetailsDto;
+    }
+
+    @Override
+    public boolean updateCurrentPayment(Session session, ProgramDetails programDetails) {
+        try {
+
+            String patientId = programDetails.getPatient().getP_id();
+            String programId = programDetails.getTherapyProgram().getT_id();
+
+            Query<ProgramDetails> query = session.createQuery("FROM ProgramDetails pd WHERE pd.patient.id = :patientId AND pd.therapyProgram.id = :programId", ProgramDetails.class);
+            query.setParameter("patientId", patientId);
+            query.setParameter("programId", programId);
+            ProgramDetails programDetails1 = query.uniqueResult();
+
+            if (programDetails1== null){
+                return false;
+            }
+
+            session.merge(programDetails);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
+    @Override
+    public boolean save(String programId, String patientId, double programFee, Date registerDate) throws SQLException {
+        ProgramDetailsIds programDetailsIds = new ProgramDetailsIds(programId, patientId);
+
+        TherapyProgramDto therapyProgramDto = therapyProgramBo.findById(programId);
+        PatientDto patientDto = patientBo.findById(patientId);
+
+        TherapyProgram therapyProgram = new TherapyProgram();
+        therapyProgram.setT_id(therapyProgramDto.getT_id());
+        therapyProgram.setName(therapyProgramDto.getName());
+        therapyProgram.setDescription(therapyProgramDto.getDescription());
+        therapyProgram.setDuration(therapyProgramDto.getDuration());
+        therapyProgram.setFee(therapyProgramDto.getFee());
+
+        Patient patient = new Patient();
+        patient.setP_id(patientDto.getP_id());
+        patient.setName(patientDto.getName());
+        patient.setEmail(patientDto.getEmail());
+        patient.setDate(patientDto.getDate());
+        patient.setContact(patientDto.getContact());
+        patient.setHistory(patientDto.getHistory());
+
+        ProgramDetails programDetails = new ProgramDetails();
+        programDetails.setIds(programDetailsIds);
+        programDetails.setTherapyProgram(therapyProgram);
+        programDetails.setPatient(patient);
+        programDetails.setCurrentPaymentStatus(programFee);
+        programDetails.setTherapyProgramName(therapyProgram.getName());
+        programDetails.setRegisterDate(registerDate);
+
+        return programDetailsDao.save(programDetails);
 
     }
 }

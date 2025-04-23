@@ -4,6 +4,7 @@ import com.assignment.orm.service.orm_final_course_work_health_care.BO.SuperBo;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.PatientDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.SessionStaticsDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.TherapyProgramDto;
+import com.assignment.orm.service.orm_final_course_work_health_care.DTO.TherapySessionSchedulingDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.Patient;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.TherapyProgram;
 
@@ -28,6 +29,8 @@ public interface TherapyProgramBo extends SuperBo {
     ArrayList<PatientDto> findPatientByProgramId(String proId);
 
     ArrayList<SessionStaticsDto> getAllDetails() throws SQLException;
+
+    ArrayList<TherapySessionSchedulingDto> getSessionsByProgramId(String programId);
 }
 
 

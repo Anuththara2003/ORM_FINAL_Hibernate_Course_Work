@@ -55,6 +55,16 @@ public class TherapySessionSchedulingDaoImpl implements TherapySessionScheduling
     }
 
     @Override
+    public TherapySessionScheduling findById(String therapySessionId) {
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+
+        TherapySessionScheduling therapySession = session.get(TherapySessionScheduling.class, therapySessionId);
+
+        return therapySession;
+    }
+
+    @Override
     public String getNextId() throws SQLException {
         Session session = FactoryConfiguration.getInstance().getSession();
 

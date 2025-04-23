@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,4 +32,7 @@ public class ProgramDetails implements SuperEntity{
 
     private String therapyProgramName;
 
+    private double currentPaymentStatus;
+
+    private Date registerDate;
 }

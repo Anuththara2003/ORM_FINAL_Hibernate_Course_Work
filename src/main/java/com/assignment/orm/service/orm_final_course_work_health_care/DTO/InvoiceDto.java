@@ -12,12 +12,13 @@ import java.sql.Date;
 @NoArgsConstructor
 @Setter
 @Getter
-public class PaymentDto {
-    private String id;
-    private double amount;
-    private String status;
-   private Date date;
+public class InvoiceDto {
     private String patientId;
-    private String therapySessionId;
-    private String therapyProgramId;
+    private String patientName;
+    private String programName;
+    private String sessionId;
+    private Date sessionDate;
+    private Date invoiceDate;
+    private double fee;
+    private String status;
 }

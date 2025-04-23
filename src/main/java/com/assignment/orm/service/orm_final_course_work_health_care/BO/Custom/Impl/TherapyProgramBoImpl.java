@@ -6,6 +6,7 @@ import com.assignment.orm.service.orm_final_course_work_health_care.DAO.DaoFacto
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.PatientDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.SessionStaticsDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.DTO.TherapyProgramDto;
+import com.assignment.orm.service.orm_final_course_work_health_care.DTO.TherapySessionSchedulingDto;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.Patient;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.ProgramDetails;
 import com.assignment.orm.service.orm_final_course_work_health_care.Entity.TherapyProgram;
@@ -187,5 +188,30 @@ public class TherapyProgramBoImpl implements TherapyProgramBo {
         return sessionStaticsDtos;
     }
 
+    @Override
+    public ArrayList<TherapySessionSchedulingDto> getSessionsByProgramId(String programId) {
+        TherapyProgram therapyProgram = therapyProgramDao.findById(programId);
 
-}
+        List<TherapySessionScheduling> therapySessionSchedulings = therapyProgram.getTherapySessionScheduling();
+
+        ArrayList<TherapySessionSchedulingDto> therapySessionDtos = new ArrayList<>();
+
+        for (TherapySessionScheduling therapySessionScheduling : therapySessionSchedulings){
+            TherapySessionSchedulingDto therapySessionSchedulingDto = new TherapySessionSchedulingDto();
+            therapySessionSchedulingDto.setId(therapySessionScheduling.getId());
+            therapySessionSchedulingDto.setStartTime(therapySessionScheduling.getStartTime());
+            therapySessionSchedulingDto.setDate(therapySessionScheduling.getDate());
+            therapySessionSchedulingDto.setStatus(therapySessionScheduling.getStatus());
+            therapySessionSchedulingDto.setTherapyProgramId(therapySessionScheduling.getTherapyProgram().getT_id());
+            therapySessionSchedulingDto.setTherapistId(therapySessionScheduling.getTherapist().getId());
+            therapySessionSchedulingDto.setPatientId(therapySessionScheduling.getPatient().getP_id());
+
+            therapySessionDtos.add(therapySessionSchedulingDto);
+        }
+
+        return therapySessionDtos;
+    }
+    }
+
+
+
