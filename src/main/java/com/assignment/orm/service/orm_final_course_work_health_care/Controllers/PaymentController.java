@@ -143,19 +143,19 @@ public class PaymentController  implements Initializable {
 
     @FXML
     void btnGenerateInvoiceOnAction(ActionEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/invoice.fxml"));
-//        Parent root = loader.load();
-//
-//        InvoiceController invoiceController = loader.getController();
-//        invoiceController.setInvoiceController(this);
-//
-//        Scene scene = new Scene(root);
-//        Stage stage = new Stage();
-//        stage.initModality(Modality.APPLICATION_MODAL);
-//        stage.setScene(scene);
-//        stage.setTitle("Invoice");
-//        stage.setResizable(false);
-//        stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/VIew/Invoice.fxml"));
+        Parent root = loader.load();
+
+        InvoiceController invoiceController = loader.getController();
+        invoiceController.setInvoiceController(this);
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setTitle("Invoice");
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML
