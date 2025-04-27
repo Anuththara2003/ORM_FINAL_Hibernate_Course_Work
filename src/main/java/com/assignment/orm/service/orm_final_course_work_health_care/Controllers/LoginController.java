@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 
 public class LoginController {
@@ -54,7 +55,7 @@ public class LoginController {
                     txtUsername.clear();
                     txtPassword.clear();
                     txtSecondPassword.clear();
-                    return;
+                    throw new LoginException("Invalid username or password");
                 }
                 Stage currentStage = (Stage) mainAnchorpane.getScene().getWindow();
                 currentStage.close();
@@ -82,6 +83,8 @@ public class LoginController {
             }catch (IOException e) {
 //               new Alert(Alert.AlertType.ERROR, "error").showAndWait();
                 e.printStackTrace();
+            } catch (LoginException e) {
+//                e.printStackTrace();
             }
         }
     }

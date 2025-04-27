@@ -23,7 +23,6 @@ public class TherapistDaoImpl implements TherapistDao {
                 .createQuery("SELECT t.id FROM Therapist t ORDER BY t.id DESC", String.class)
                 .setMaxResults(1)
                 .uniqueResult();
-
         return lastId;
     }
 
